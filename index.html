@@ -12,12 +12,13 @@
 <body>
       <div class="body-container">
     <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
             <input type="search" 
             placeholder="Enter a city.." 
             minlength="2"
             required
-            class="search-bar">
+            class="search-bar"
+            id="search-bar">
 
             <input type="submit" value="Search" class="search-button">
         </form>
@@ -28,7 +29,7 @@
   
      <div class="weather-app-data">
         <div>
-<h1 class="weather-app-city">Paris</h1>
+<h1 class="weather-app-city" id="weather-app-city">Paris</h1>
    
 <p class="weather-app-details">
    <span class="current-day">Saturday</span> <span class="current-time">11:11</span>, scattered clouds <br>
