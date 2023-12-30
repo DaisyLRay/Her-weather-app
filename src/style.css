@@ -71,19 +71,17 @@ main {
  
 }
 
-.current-day {
+.current-day-time {
     font-size: 28px;
     font-style: italic;
 }
 
-.current-time {
-    font-size: 24px;
-}
+
 .weather-app-details strong {
 
     color: rgb(209, 110, 110);
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
 }
 .weather-app-temp-container {
     display: flex;
