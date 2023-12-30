@@ -8,7 +8,7 @@ body {
   border-radius: 30px;
   margin: 55px auto;
   width: 60%;
-  background-color: rgb(213, 221, 224);
+  background-color: rgb(207, 212, 214);
   padding: 50px;
   box-shadow: 0 30px 50px (rgba(65, 50, 100, 0.08));
 
@@ -38,7 +38,7 @@ header {
 .search-button {
   margin-left: 5px;
   font-size: 16px;
-  background-color: #e99b9b;
+  background-color: rgb(232, 106, 106);
   color: white;
   border: none;
   padding: 20px;
@@ -89,12 +89,13 @@ main {
 
 .weather-app-temperature {
     font-size: 88px;
-    font-weight: ;
+   
 margin-left: 10px;
 }
 
 .weather-app-icon {
-    font-size: 44px;
+   width: 100px;
+
     margin-top: 22px;
 
 }
