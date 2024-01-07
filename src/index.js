@@ -18,6 +18,8 @@ iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class = 
  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
  windSpeedElement.innerHTML =`${Math.round(response.data.wind.speed)}km/h` 
  temperatureElement.innerHTML = Math.round(temperature);
+
+getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -45,7 +47,12 @@ axios.get(apiUrl).then(refreshWeather);
 
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
 
+  return days[date.getDay()];
+}
 
 function handleSearchSubmit(event) {
     event.preventDefault();
@@ -56,33 +63,43 @@ function handleSearchSubmit(event) {
 
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "eb3cob03f4tb0a9096af3cf9de7ce5d9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Tue", "Weds", "Thurs", "Fri", "Sat", "Sun"];
+  
 let forecastHtml = "";
  
-days.forEach (function (day) {
-  
+response.data.daily.forEach (function (day, index) {
+
+  if (index < 5) 
+ { 
   forecastHtml = 
   forecastHtml +
    `  
   <div class="weather-forecast-day">
    
-      <div class="weather-forecast-date">${day}</div>
-      <div class="weather-forecast-icon">
-      <img src="https://openweathermap.org/img/wn/50d@2x.png" 
+      <div class="weather-forecast-date">${formatDay(day.time)}</div>
+      <div>
+      <img class="weather-forecast-icon" src="${day.condition.icon_url}" 
       alt="" 
       width="48"> </div>
     
     <div class="weather-forecast-temperatures">
-      <span class="weather-forecast-temp-max">18°</span>
-      <span class="weather-forecast-temp-min">12°</span>
+      <strong><span class="weather-forecast-temp-max">${Math.round(day.temperature.maximum)}°</span></strong>
+      <span class="weather-forecast-temp-min">${Math.round(day.temperature.minimum)}°</span>
     </div> 
     </div>
   </div>
   `;
-});
+}});
 forecastElement.innerHTML = forecastHtml;
 }
 
@@ -90,5 +107,6 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("London");
+
 
 displayForecast();
