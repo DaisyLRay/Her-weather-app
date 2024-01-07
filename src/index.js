@@ -56,7 +56,39 @@ function handleSearchSubmit(event) {
 
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Weds", "Thurs", "Fri", "Sat", "Sun"];
+let forecastHtml = "";
+ 
+days.forEach (function (day) {
+  
+  forecastHtml = 
+  forecastHtml +
+   `  
+  <div class="weather-forecast-day">
+   
+      <div class="weather-forecast-date">${day}</div>
+      <div class="weather-forecast-icon">
+      <img src="https://openweathermap.org/img/wn/50d@2x.png" 
+      alt="" 
+      width="48"> </div>
+    
+    <div class="weather-forecast-temperatures">
+      <span class="weather-forecast-temp-max">18°</span>
+      <span class="weather-forecast-temp-min">12°</span>
+    </div> 
+    </div>
+  </div>
+  `;
+});
+forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("London");
+
+displayForecast();
