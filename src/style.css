@@ -1,14 +1,30 @@
 body {
+
+  
   font-family: "Montserrat", sans-serif;
   background-color: #FEFEFF;
  
 }
 
+body {    --s: 200px; /* control the size */
+  --c: #fff; /* first color */
+  
+  --_g: #0000 8%,var(--c) 0 17%,#0000 0 58%;
+  background: 
+    linear-gradient(135deg,#0000 20.5%,var(--c) 0 29.5%,#0000 0) 0 calc(var(--s)/4),
+    linear-gradient( 45deg,var(--_g)) calc(var(--s)/2) 0,
+    linear-gradient(135deg,var(--_g),var(--c) 0 67%,#0000 0),        
+    linear-gradient( 45deg,var(--_g),var(--c) 0 67%,#0000 0 83%,var(--c) 0 92%,#0000 0),
+    #1095c1; /* second color */
+  background-size: var(--s) var(--s);
+}
+
+
 .body-container {
   border-radius: 30px;
   margin: 55px auto;
   width: 60%;
-  background-color: rgb(229, 227, 227);
+  background-color: rgb(242, 130, 132);
   padding: 50px;
   box-shadow: 0 30px 50px (rgba(65, 50, 100, 0.08));
 
@@ -30,16 +46,18 @@ header {
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
   padding: 20px;
-  width: 75%;
+  width: 74%;
   border-radius: 6px;
   background-color: #FEFEFF;
 }
 
 .search-button {
   margin-left: 5px;
-  font-size: 16px;
-  background-color: rgb(234, 107, 110);
-  color: white;
+  font-size: 17px;
+  background-color: rgb(255, 218, 73);
+  font-weight: bold;
+  color:#3A4664;
+
   border: none;
   padding: 20px;
   line-height: 1;
@@ -53,7 +71,7 @@ main {
     padding: 30px 0;
 }
 .weather-app-city {
-  color: #3A4664;
+  color: white;
   font-size: 54px;
   margin: 0 ;
   line-height: 48px;
@@ -79,14 +97,16 @@ main {
 
 .weather-app-details {
 
-  color: #EAA0A2;
+  color:  #3A4664;
+
+  font-weight: 500;
 }
 
 .weather-app-details strong {
 
-    color:   rgb(234, 107, 110) ;
- 
-    font-weight: 500;
+    color:    #3A4664 ;
+    opacity: 0.7;
+
     font-size: 18px;
 }
 .weather-app-temp-container {
@@ -95,6 +115,7 @@ main {
 
 .weather-app-temperature {
     font-size: 88px;
+    font-weight: 900;
     color: #3A4664;
    
 margin-left: 10px;
@@ -105,7 +126,7 @@ margin-left: 10px;
  color: #3A4664;}
 
 .weather-app-icon {
-   width: 100px;
+   width: 120px;
 
     margin-top: 10px;
 
@@ -123,16 +144,17 @@ font-size: 28px;
   
 }
 .weather-forecast-date {
-  font-size: 18px;
-  color:#3A4664 ;
-  opacity: 0.8;
+  font-size: 22px;
+  color:white ;
+  opacity: 0.7;
+  
   font-weight: bold;
 
   ;
 }
 
 .weather-forecast-icon {
-  width: 65%;
+  width: 75%;
 
 
 
@@ -140,8 +162,8 @@ font-size: 28px;
 
 
 .weather-forecast-temperatures {
-  font-size: 15px;
- color:  rgb(234, 107, 110);
+  font-size: 17px;
+ color:  #3A4664;
 }
 .weather-forecast {
    display: flex;
